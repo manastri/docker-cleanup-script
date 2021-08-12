@@ -98,7 +98,7 @@ unUsedVolumes=$($DOCKER volume ls -qf dangling=true)
 if [ "$unUsedVolumes" != "" ]; then
         for uVolumes in ${unUsedVolumes}
         do
-                ${DOCKER} volume rm ${uVolumes} >> /tmp/cleanUpLog
+                ${DOCKER} volume rm -f ${uVolumes} >> /tmp/cleanUpLog
                 if [ $# -eq 0 ]; then
                         echo -n "\n ======= Docker image with ImageId: ${uVolumes} Delted Successfully =======\n" >> /tmp/cleanUpLog
                 else
