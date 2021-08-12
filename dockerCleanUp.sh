@@ -61,7 +61,7 @@ if [ "$oldContainers" != "" ]; then
 else
   echo -e "\n ======= There no Docker containers with status as 'Exited' ====== \n" >> /tmp/cleanUpLog
 fi
-echo -e "======= Proceeding to next step, i.e deletion of old images which are two months old =============="
+echo -e "======= Proceeding to next step, i.e deletion of old images which are more than two months old =============="
 oldImages=$($DOCKER images | $AWK '{print $3,$4,$5}' | $GREP '[9]\{1\}\ weeks\|years\|months' | $AWK '{print $1}')
 #echo ${oldImages} >> cleanUpLog
 if [ "$oldImages" != "" ]; then
