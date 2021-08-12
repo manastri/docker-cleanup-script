@@ -14,4 +14,4 @@
 	- Command : ```docker rmi -f $(docker images | awk '{print $3,$4,$5}' | grep '[5-9]\{1\}\ weeks\|years\|months' | awk '{print $1}')```
 	
 5. Delete or clean up unused docker volumes. 
-	- Command : ```docker volume rm $(docker volume ls -qf dangling=true)```
+	- Command : ```docker volume rm -f $(docker volume ls -qf dangling=true)```
